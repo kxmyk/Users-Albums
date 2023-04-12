@@ -1,14 +1,13 @@
-import Button from "./components/Button.jsx";
+import UsersList from "./components/UsersList.jsx";
 
 const App = () => {
 
 
 	return (
 		<div className="App">
-			<h1 className="text-3xl">
-				App!!
-				<Button/>
-			</h1>
+			<div className="container mx-auto">
+				<UsersList/>
+			</div>
 		</div>
 	)
 }
