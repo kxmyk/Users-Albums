@@ -1,44 +1,24 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Myra"
+      "name": "Nettie Schuppe",
+      "id": 1
     },
     {
-      "name": "Antoinette Heidenreich",
+      "name": "Zachary O'Kon",
       "id": 2
     },
     {
-      "name": "Alan Graham",
+      "name": "Joann Wyman",
       "id": 3
     },
     {
-      "name": "Miss Casey Schroeder",
+      "name": "Katrina Kirlin Sr.",
       "id": 4
     },
     {
-      "name": "Timmy Mayert",
+      "name": "Tom Prohaska",
       "id": 5
-    },
-    {
-      "name": "Janet Davis",
-      "id": 6
-    },
-    {
-      "name": "Willie Ankunding MD",
-      "id": 7
-    },
-    {
-      "name": "Joe Franey",
-      "id": 8
-    },
-    {
-      "name": "Mr. Clara Green",
-      "id": 9
-    },
-    {
-      "name": "Charlie Lesch",
-      "id": 10
     }
   ],
   "albums": [],

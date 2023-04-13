@@ -1,10 +1,11 @@
-import {fetchUsers} from "../store/thunks/fetchUsers.js";
-import {addUser} from "../store/thunks/addUser.js";
+import {fetchUsers} from '../store/thunks/fetchUsers.js';
+import {addUser} from '../store/thunks/addUser.js';
 import Button from './Button';
-import Skeleton from './Skeleton';
-import useThunk from "../hooks/use-thunk.jsx";
-import {useSelector} from "react-redux";
-import {useEffect} from "react";
+import Skeleton from './Skeleton.jsx';
+import useThunk from '../hooks/use-thunk.jsx';
+import {useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import UsersListItem from './UsersListItem.jsx';
 
 const UsersList = () => {
 	const [doFetchUsers, isLoadingUsers, loadingUsersError] = useThunk(fetchUsers)
@@ -21,38 +22,17 @@ const UsersList = () => {
 		doCreateUser()
 	};
 
-	if (loadingUsersError) {
-		return <div>Error fetching data...</div>;
-	}
-
 	const renderedUsers = data.map((user) => {
-		return (
-			<div key={user.id} className="mb-2 border rounded">
-				<div className="flex p-2 justify-between items-center cursor-pointer">
-					{user.name}
-				</div>
-			</div>
-		);
+		return <UsersListItem key={user.id} user={user}/>
 	});
 
-	return (
-		<>
-			<div className="flex flex-row justify-between m-3">
-				<h1 className="m-2 text-xl">Users</h1>
-				{
-					isCreatingUser
-						? 'Creating User...'
-						: <Button onClick={handleUserAdd}>+ Add User</Button>
-				}
-				{creatingUserError && 'Error creating user'}
-			</div>
-			{
-				isLoadingUsers
-					? <Skeleton times={6} className="h-10 w-full"/>
-					: renderedUsers
-			}
-		</>
-	);
+	return (<>
+		<div className='flex flex-row justify-between m-3 items-center'>
+			<h1 className='m-2 text-xl'>Users</h1>
+			<Button loading={isCreatingUser} onClick={handleUserAdd}>+ Add User</Button>
+		</div>
+		{isLoadingUsers ? <Skeleton times={6} className='h-10 w-full'/> : renderedUsers}
+	</>);
 }
 
 export default UsersList;
